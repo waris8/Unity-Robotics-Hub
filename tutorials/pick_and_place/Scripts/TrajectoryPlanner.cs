@@ -150,7 +150,7 @@ public class TrajectoryPlanner : MonoBehaviour
     /// <returns></returns>
     private IEnumerator ExecuteTrajectories(MoverServiceResponse response)
     {
-        if (response.trajectories != null)
+        if (response.trajectories.Length > 0)
         {
             // For every trajectory plan returned
             for (int poseIndex  = 0 ; poseIndex < response.trajectories.Length; poseIndex++)
