@@ -5,7 +5,6 @@ using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 
-
 public class TrajectoryPlanner : MonoBehaviour
 {
     // ROS Connector
@@ -124,7 +123,7 @@ public class TrajectoryPlanner : MonoBehaviour
 
     void TrajectoryResponse(MoverServiceResponse response)
     {
-        if (response.trajectories.Length > 0)
+        if (response.trajectories != null)
         {
             Debug.Log("Trajectory returned.");
             StartCoroutine(ExecuteTrajectories(response));
@@ -224,5 +223,13 @@ public class TrajectoryPlanner : MonoBehaviour
 
         rightGripper = rightGripperGameObject.GetComponent<ArticulationBody>();
         leftGripper = leftGripperGameObject.GetComponent<ArticulationBody>();
+    }
+
+    public void DrawTrajectory(double[] positions, DebugDraw drawing)
+    {
+/*        for (int Idx = 0; Idx < positions.Length; ++Idx)
+        {
+            jointArticulationBodies[Idx].;
+        }*/
     }
 }
