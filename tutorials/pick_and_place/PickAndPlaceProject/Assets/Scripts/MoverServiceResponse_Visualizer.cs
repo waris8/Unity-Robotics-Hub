@@ -3,19 +3,25 @@ using RosMessageTypes.NiryoMoveit;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ROSGeometry;
+using Unity.Robotics.ROSTCPConnector.ROSGeometry;
+using Unity.Robotics.ROSTCPConnector.MessageGeneration;
 using RosMessageTypes.Moveit;
 using RosMessageTypes.Trajectory;
 
 [VisualizeMessage(typeof(MoverServiceResponse))]
 public class MoverServiceResponse_Visualizer : MessageVisualizerDrawing<MoverServiceResponse>
 {
-    public override void DrawGUI(DebugDraw.Drawing drawing, MoverServiceResponse message)
+    public MoverServiceResponse_Visualizer(string topic, Message msg):
+        base(topic, msg)
     {
-        base.DrawGUI(drawing, message);
     }
 
-    public override void Draw(DebugDraw.Drawing drawing, MoverServiceResponse message)
+    public override void GUI()
+    {
+        GUILayout.Label(message.ToString());
+    }
+
+    public override void DrawVisual()
     {
     }
 }
