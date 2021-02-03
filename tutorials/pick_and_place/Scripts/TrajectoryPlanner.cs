@@ -224,12 +224,4 @@ public class TrajectoryPlanner : MonoBehaviour
         rightGripper = rightGripperGameObject.GetComponent<ArticulationBody>();
         leftGripper = leftGripperGameObject.GetComponent<ArticulationBody>();
     }
-
-    public void DrawTrajectory(double[] positions, DebugDraw drawing)
-    {
-/*        for (int Idx = 0; Idx < positions.Length; ++Idx)
-        {
-            jointArticulationBodies[Idx].;
-        }*/
-    }
 }
